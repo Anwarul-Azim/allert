@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Switch Slider Button</title>
+  <style>
+    body {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+      padding: 0;
+      background-image: url('image1.jpg');
+      background-size: cover;
+      background-position: center;
+    }
+
+    .switch {
+      position: relative;
+      display: inline-block;
+      width: 120px;
+      height: 60px;
+    }
+
+    .switch input {
+      display: none;
+    }
+
+    .slider {
+      position: absolute;
+      cursor: pointer;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background-color: #ccc;
+      transition: .4s;
+    }
+
+    .slider:before {
+      position: absolute;
+      content: "";
+      height: 56px;
+      width: 56px;
+      left: 2px;
+      bottom: 2px;
+      background-color: white;
+      transition: .4s;
+    }
+
+    input:checked + .slider {
+      background-color: #2196F3;
+    }
+
+    input:checked + .slider:before {
+      transform: translateX(60px);
+    }
+  </style>
+</head>
+<body>
+  <div class="switch">
+    <input type="checkbox" id="toggle">
+    <label class="slider" for="toggle"></label>
+  </div>
+
+  <script>
+    const toggle = document.getElementById('toggle');
+    toggle.addEventListener('change', function() {
+      if (this.checked) {
+        // Handle "on" state
+        console.log('Switch is on');
+        document.body.style.backgroundImage = "url('2.jpg')";
+      } else {
+        // Handle "off" state
+        console.log('Switch is off');
+        document.body.style.backgroundImage = "url('1.jpg')";
+      }
+    });
+  </script>
+</body>
+</html>
+
